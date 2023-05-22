@@ -45,7 +45,7 @@ final class MealGenerator: ObservableObject {
     
     func fetchDessert() {
         
-        //print("Hello, we called the fetch dessert function")
+        print("Hello, we called the fetch dessert function")
         
         dcancellable = URLSession.shared.dataTaskPublisher(for: URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert")!)
             .receive(on: DispatchQueue.main)
