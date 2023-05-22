@@ -19,12 +19,13 @@ struct Meal: Decodable {
     let imageUrlString: String
     let ingredients: [Ingredient]
     let instructions: String
+    let idMeal: String
     
 }
 
 extension Meal {
     init (from decoder: Decoder) throws {
-        print("In the Meal decoder")
+        //print("In the Meal decoder")
 
         let container = try decoder.singleValueContainer()
         let mealDictionary = try container.decode([String: String?].self)
@@ -43,6 +44,8 @@ extension Meal {
         self.ingredients = ingredients
         name = mealDictionary["strMeal"] as? String ?? ""
         imageUrlString = mealDictionary["strMealThumb"] as? String ?? ""
+        idMeal = mealDictionary["idMeal"] as? String ?? ""
+
         instructions = mealDictionary["strInstructions"] as? String ?? ""
     }
     

@@ -11,6 +11,9 @@ struct ContentView: View {
     
     @StateObject private var mealGenerator = MealGenerator()
     
+    private var maxIndex: Int = 64
+    @State private var count: Int = 0
+    
     var actionButton: some View {
         Button("Get Random Meal") {
             mealGenerator.fetchRandommeal()
@@ -27,6 +30,14 @@ struct ContentView: View {
     
     var dessertButton: some View {
         Button("Get Dessert") {
+            
+            var myCount = count
+            myCount += 1
+            mealGenerator.getDetails(mealId: mealGenerator.listOfDesserts[myCount].idMeal)
+            
+            self.count = myCount
+            
+            
             mealGenerator.fetchDessert()
             
         }
