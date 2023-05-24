@@ -9,8 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+    //Meal Generator Object
     @StateObject private var mealGenerator = MealGenerator()
-    @State var myMeal: Meal?
+    
     
     var body: some View {
             NavigationView {
@@ -34,11 +35,10 @@ struct ContentView: View {
                   
                 } .frame(maxHeight: .infinity)
                 
-           
              
         }.onAppear {
-            mealGenerator.fetchRandommeal()
-            mealGenerator.fetchDessert()
+            mealGenerator.getDesserts()
+
         }
             
     }
@@ -49,16 +49,12 @@ struct ContentView: View {
 struct ingredientView: View  {
     
     @Binding var currentMeal: Meal?
-    
-    
     @StateObject private var mealGenerator = MealGenerator()
     
     
     var body: some View {
         ScrollView {
             VStack {
-                
-                var ImageURL: String = currentMeal!.imageUrlString
                 
                 if let name = currentMeal?.name {
                     Text(name)
@@ -100,7 +96,7 @@ struct ingredientView: View  {
             }.padding()
         }.onAppear {
             
-            //Update the current Information of the Meal
+            //Get the full information for the meal
             mealGenerator.getDetails(mealId: currentMeal!.idMeal)
             
             

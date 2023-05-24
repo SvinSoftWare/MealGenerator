@@ -19,9 +19,8 @@ final class MealGenerator: ObservableObject {
 
     private var cancellable: AnyCancellable?
     
-    
     //Get all the Dessert Data
-    func fetchRandommeal() {
+    func getDesserts() {
         
         //API Call
         cancellable = URLSession.shared.dataTaskPublisher(for: URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert")!)
@@ -31,8 +30,8 @@ final class MealGenerator: ObservableObject {
                 
                 self.listOfDesserts = mealData.meals
                                
-                self.currentMeal = mealData.meals[1]
-                self.currentImageURLString = mealData.meals[1].imageUrlString
+                self.currentMeal = mealData.meals[0]
+                self.currentImageURLString = mealData.meals[0].imageUrlString
                 
                 self.getDetails(mealId: self.currentMeal!.idMeal)
                 
@@ -42,13 +41,13 @@ final class MealGenerator: ObservableObject {
     }
     
     
-    //Given The Meal Data, Look up Extra Information
+    //From the ID, get the other information (Ingredients & Instructions)
     func getDetails(mealId: String) {
 
-        var baseURL: String = "https://www.themealdb.com/api/json/v1/1/lookup.php?"
-        var APICall: String = baseURL + "i=" + mealId
+        let base_url: String = "https://www.themealdb.com/api/json/v1/1/lookup.php?"
+        let api_call: String = base_url + "i=" + mealId
         
-        cancellable = URLSession.shared.dataTaskPublisher(for: URL(string: APICall)!)
+        cancellable = URLSession.shared.dataTaskPublisher(for: URL(string: api_call)!)
             .receive(on: DispatchQueue.main)
             .sink { _ in } receiveValue: { data, _ in
             if let mealData = try? JSONDecoder().decode(MealData.self, from: data) {
@@ -63,30 +62,5 @@ final class MealGenerator: ObservableObject {
         
         
     }
-    
-    private var dcancellable: AnyCancellable?
-    
-    //Fetching the Dessert
-    @Published var currentDessert: Meal?
-    @Published var currentDesertImage: String?
-    
-    func fetchDessert() {
-                
-        dcancellable = URLSession.shared.dataTaskPublisher(for: URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert")!)
-            .receive(on: DispatchQueue.main)
-            .sink { _ in } receiveValue: { dataOne, _ in
-             
-            if let mealData = try? JSONDecoder().decode(MealData.self, from: dataOne) {
-                
-                self.currentDessert = mealData.meals.first
-                self.currentDesertImage = mealData.meals.first?.imageUrlString
-                    
-                
-            }
-        }
-        
-        
-    }
-    
-    
+
 }
