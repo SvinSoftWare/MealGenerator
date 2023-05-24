@@ -17,7 +17,6 @@
 		DFA674F42A19AA4300E6D58E /* MealData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA674F32A19AA4300E6D58E /* MealData.swift */; };
 		DFA674F62A19AD9300E6D58E /* MealGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA674F52A19AD9300E6D58E /* MealGenerator.swift */; };
 		DFA674FA2A1ACF8B00E6D58E /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA674F92A1ACF8B00E6D58E /* AsyncImageView.swift */; };
-		DFA674FC2A1C096300E6D58E /* DessertData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA674FB2A1C096300E6D58E /* DessertData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,7 +50,6 @@
 		DFA674F32A19AA4300E6D58E /* MealData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealData.swift; sourceTree = "<group>"; };
 		DFA674F52A19AD9300E6D58E /* MealGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealGenerator.swift; sourceTree = "<group>"; };
 		DFA674F92A1ACF8B00E6D58E /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
-		DFA674FB2A1C096300E6D58E /* DessertData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +106,6 @@
 				DFA674CD2A19AA2D00E6D58E /* Assets.xcassets */,
 				DFA674CF2A19AA2D00E6D58E /* Preview Content */,
 				DFA674F32A19AA4300E6D58E /* MealData.swift */,
-				DFA674FB2A1C096300E6D58E /* DessertData.swift */,
 				DFA674F52A19AD9300E6D58E /* MealGenerator.swift */,
 			);
 			path = MealGenerator;
@@ -271,7 +268,6 @@
 			files = (
 				DFA674F62A19AD9300E6D58E /* MealGenerator.swift in Sources */,
 				DFA674CC2A19AA2C00E6D58E /* ContentView.swift in Sources */,
-				DFA674FC2A1C096300E6D58E /* DessertData.swift in Sources */,
 				DFA674CA2A19AA2C00E6D58E /* MealGeneratorApp.swift in Sources */,
 				DFA674FA2A1ACF8B00E6D58E /* AsyncImageView.swift in Sources */,
 				DFA674F42A19AA4300E6D58E /* MealData.swift in Sources */,
