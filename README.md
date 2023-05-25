@@ -1,7 +1,7 @@
 # MealGenerator
 Creation of MealApp
 
-Shows a list of desserts and their recipes/ingrdients for people to learn how to cook
+Shows a list of desserts and their recipes/ingredients for people to learn how to cook
 
 Instructions:
   1. Download Zip File
